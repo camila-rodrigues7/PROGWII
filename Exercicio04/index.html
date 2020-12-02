@@ -7,21 +7,78 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./public/favicon-16x16.png">
     <link rel="manifest" href="./public/manifest.json">
+	<link href="styles.css" rel="stylesheet">
     <title>Exercício</title>
 </head>
 <body>
-    <div class="mensagens">
-        <!-- Adicione as mensagens de erro, caso existam -->
-    </div>
+<div id="calculator">
 
-    <div class="formulario">
-        <!-- Adicione os Campos do Formulário -->
-    </div>
-    
-    <div class="resultados">
-        <!-- Adicione o Resultado -->
-    </div>
+		<div class="container">
+			<form action="#"  >
+				<h1>Calcular Média do Aluno</h1>
+				
 
-    <script src="<!-- Nome do Arquivo main.js -->" type="text/javascript"></script>
+				<div v-bind:class="{ error: !isAlunoAprovado } ">
+					<p >{{media}}</p>
+					<span v-if="!isAlunoAprovado && isPreenchido">{{aluno}} Você reprovou em {{select}}!</span>
+				</div>
+				<select name="select">
+                <option value="valor1">Matemática</option> 
+                <option value="valor2">Português</option>
+                <option value="valor3">Geografia</option>
+</select>
+                <label >Aluno</label>
+                <input type="text" name="aluno" class="currency" v-model="aluno" />
+
+                <label >Nota 1</label>
+                <input type="number" name="nota1" class="currency" v-model.number="nota1" />
+
+                <label >Nota 2</label>
+				<input type="number" name="nota2" class="currency" v-model.number="nota2" />
+				
+				<label >Nota 3</label>
+				<input type="number" name="nota2" class="currency" v-model.number="nota3" />
+                
+
+			</form>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+		var calculator = new Vue({
+			el: '#calculator',
+			data: {
+                aluno:"",
+				nota1:null,
+                nota2:null,
+
+			},
+			computed: {
+				isPreenchido(){
+					return this.aluno != '' && this.nota1 != null && this.nota2 != null;
+				},
+		
+				isAlunoAprovado(){
+
+									
+				return (this.nota1 * 0.25 + this.nota2 * 0.25 + this.media * 0.5 ) >= 6.2
+
+				},
+				media(){
+                    
+					return (this.nota1 + this.nota2) / 2;
+				 
+				 }
+				
+            },
+            
+
+		});
+
+	</script>
+
+    <script src="main.js -->" type="text/javascript"></script>
 </body>
 </html>
