@@ -27,7 +27,39 @@ const questoes = [
       { id: 4, texto: "const idade = 18;", correta: false },
     ],
   },
-  // Crie pelo menos mais 3 questões sobre javascript. Cada questão precisa ter 1 alternativa correta
+  {
+    id: 3,
+    descricao: "O que significa HTML??",
+    nivel: "Fácil",
+    alternativas: [
+      { id: 1, texto: "HypnoToad Multiple Loop", correta: false },
+      { id: 2, texto: "HardText Markup Language", correta: false },
+      { id: 3, texto: "HyperTable Max Language", correta: false },
+      { id: 4, texto: "HyperText Markup Language", correta: true },
+    ],
+  },
+  {
+    id: 4,
+    descricao: "Qual a primeira tag que um documento HTML deve conter?",
+    nivel: "Fácil",
+    alternativas: [
+      { id: 1, texto: "<head>", correta: false },
+      { id: 2, texto: "<html>", correta: false },
+      { id: 3, texto: "<title>", correta: false },
+      { id: 4, texto: "<!DOCTYPE html>", correta: true },
+    ],
+  },
+  {
+    id: 5,
+    descricao: "O que simboliza uma tag de fechamento?",
+    nivel: "Fácil",
+    alternativas: [
+      { id: 1, texto: "\ (barra invertida)", correta: false },
+      { id: 2, texto: "; (ponto e vírgula)", correta: false },
+      { id: 3, texto: "/ (barra)", correta: true },
+      { id: 4, texto: "= (igual)", correta: false },
+    ],
+  },
 ];
 
 const proximaQuestao = function () {
@@ -60,7 +92,17 @@ function criarInputHidden(questao) {
   input.value = questao.id;
   return input;
 }
-
+function embaralharArray(meuArray) {
+  for (
+    var j, x, i = meuArray.length;
+    i;
+    j = Math.floor(Math.random() * i),
+      x = meuArray[--i],
+      meuArray[i] = meuArray[j],
+      meuArray[j] = x
+  );
+  return meuArray;
+}
 function criarLabel(texto) {
   let label = document.createElement("label");
   label.textContent = texto;
