@@ -16,6 +16,22 @@ addEventListener('load', function() {
     });
     animais_tag.innerHTML += "<hr />"
     
-    // Continue a tarefa aqui...
+var animal2 = animais.push('Bimbo');
+
+function filterItems(query) {
+  return animais.filter(function(el) {
+      return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
+  })
+}
+
+console.log(filterItems('cachorro')); 
+
+const newArray = anima2.filter(animais => animais.age > idade: *=7);
+console.table (newarray);
+
+AgeSum = animais.reduce((total, elemento) => {
+if (elemento.tipo === '') return total += (elemento.idade +=7);
+else return total}, 0);
+
     
 })
